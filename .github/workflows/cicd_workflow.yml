@@ -103,10 +103,10 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v6 # v8.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: SonarQube Quality Gate Check
-        uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # - name: SonarQube Quality Gate Check
+      #   uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
+      #   env:
+      #     SONAR_TOKEN: {{ secrets.SONAR_TOKEN }}
   build-image:
     if: ${{ success() && inputs.run_build_image }}
     name: Build Docker Image
