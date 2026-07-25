@@ -117,6 +117,8 @@ jobs:
     steps:
       - name: checkout Code
         uses: actions/checkout@v5.0.0
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v4.2.0
       - name: Generate image tag
@@ -131,6 +133,7 @@ jobs:
           file: ./Dockerfile
           push: false
           load: true
+          platforms: linux/arm64
           tags: thinknyx_app:${{ steps.vars.outputs.IMAGE_TAGS }}
       - name: save docker images as tar
         run: |
