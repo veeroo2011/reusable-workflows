@@ -28,7 +28,7 @@ on:
 jobs:
   deploy:
     name: Deploy to Kubernetes
-    runs-on: ${{inputs.RUNNER_LABELS}}
+    runs-on: self-hosted
     env:
       NAMESPACE: ${{ inputs.NAMESPACE }}
     steps:
