@@ -12,6 +12,11 @@ on:
       IMAGE_NAME:
         required: true
         type: string
+      RUNNER_LABELS:
+        description: 'Type of runner to use for the job'
+        default: 'ubuntu-latest'
+        required: true
+        type: string
     secrets:
       KUBECONFIG:
         description: 'Kubeconfig for Kubernetes Cluster'
@@ -23,7 +28,7 @@ on:
 jobs:
   deploy:
     name: Deploy to Kubernetes
-    runs-on: self-hosted
+    runs-on: ${{inputs.RUNNER_LABELS}}
     env:
       NAMESPACE: ${{ inputs.NAMESPACE }}
     steps:
