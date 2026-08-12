@@ -28,7 +28,7 @@ jobs:
       NAMESPACE: ${{ inputs.NAMESPACE }}
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Install kubectl
         run: |
           # 1. Detect system architecture
